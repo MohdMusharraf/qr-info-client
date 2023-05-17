@@ -26,6 +26,7 @@ p{
     .bg--div{
         background-image: url("../images/bgmobile.png");
         background-size: cover;
+        background-repeat: repeat;
     }
 }
 .parent-div{
