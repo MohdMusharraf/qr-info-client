@@ -1,0 +1,14 @@
+.Home-App {
+    height: 100vh;
+    background-image: url("../images/bg-image.png");
+    background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+
+.Home-App-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}

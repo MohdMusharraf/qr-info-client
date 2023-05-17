@@ -1,0 +1,138 @@
+.contain--two{
+    position: relative;
+    zoom: 0.9;
+    display: flex;
+    border: 1px solid #834aa4;
+    margin: 3em 16em 0 16em;
+    border-radius: 20px;
+    backdrop-filter: blur(45px);
+    min-height: 50em;
+    max-height: 50em;
+    /* transform: scale(0.9); */
+    /* transform-origin: 0 0; */
+    /* margin-bottom: 10em; */
+}
+
+.left--div{
+    padding-top: 2em;
+    max-width: 26em;
+    background: url("../../images/left-div.png");
+    background-size: 100%100%;
+    flex-grow: 1;
+    border-radius: 20px;
+    /* border: 2px solid black; */
+}
+
+.right--div{
+    flex-grow: 1;
+    border-radius: 20px;
+    /* backdrop-filter: blur(45px); */
+    /* border: 2px solid black; */
+}
+
+.progress--div{
+    margin:  2em 5em 2em 5.5em;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    /* border: 2px solid black; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
+}
+
+.progress--div > img {
+    width: 45px;
+    height: 45px;
+}
+
+.progress--div > p {
+    font-family: reg-f;
+}
+
+.step-desc {
+    font-family: bold-f;
+    font-size: 1.5em;
+}
+
+.btn--div{
+    max-width: 25.2em;
+    width: 25.2em;
+    top: 42em;
+    left: 37em;
+    position: absolute;
+    display: flex;
+    /* gap: 15.5em; */
+    justify-content: space-between;
+    /* margin: 1.5em 2em; */
+    /* margin: 0 1em 0 1em; */
+    /* width: 50%; */
+    /* border: 1px solid black; */
+}
+
+.next-btn {
+    font-family: med-f;
+    margin: 1em 0 2em 0;
+    background: rgb(215, 146, 255);
+    border-radius: 8px;
+    /* box-shadow: #5E5DF0 0 10px 20px -10px; */
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    /* font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif; */
+    font-size: 18px;
+    /* font-weight: 700; */
+    line-height: 24px;
+    opacity: 1;
+    outline: 0 solid transparent;
+    padding: 8px 18px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    position: relative;
+    width: fit-content;
+    word-break: break-word;
+    border: 0;
+    transition: 0.5s;
+    transition-timing-function: cubic-bezier(0,.01,.27,.99);
+}
+
+.next-btn:hover {
+    background: #D490FB;
+    box-shadow: 0px 5px 20px 0px rgba(215, 143, 255, 0.7);
+}
+
+.next-btn:active{
+    content: "";
+    top: 2px;
+}
+
+.next-btn:after{
+    transition: 5s;
+    transition-timing-function: cubic-bezier(0,.01,.27,.99);
+}
+
+
+.qrCodeDiv {
+    margin-top: 2em;
+    width: 50%;
+    border: 1px solid black;
+    border-radius: 1.5em;
+    display: flex;    
+    justify-content: center;
+    align-items: center;
+    margin-inline: auto;
+}
+
+.qrCodeImg > img{
+    border-radius: 1.5em;
+    position: relative;
+    padding-right: 2em;
+}
+.qrCodeText > h1{
+    margin: 0;
+    font-size: 3em;
+}
+.qrCodeText > p{
+    margin: 0;
+    font-size: 1.5em;
+}

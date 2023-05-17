@@ -1,0 +1,74 @@
+.form-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* margin-top: 4em; */
+    /* border: 1px solid black; */
+    /* margin-bottom: 20em; */
+    /* padding-bottom: 20em; */
+}
+
+.form-div > h1 {
+    margin: 1.5em 0 0.5em 0;
+}
+
+.per--form{
+    margin-top: 0em;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    /* margin-bottom: 2em; */
+    /* border: 2px solid black; */
+}
+
+.per--form > label {
+    font-size: 20px;
+    font-family: med-f;
+    padding: 1.3em 0em 0.5em 0em;
+}
+
+.per--form > label:first-child {
+    padding-top: 1em;
+}
+.per--form > input:last-child {
+    text-indent: 0.2em;
+}
+
+.per--form > input {
+    width: 20em;
+    height: 1.9em;
+    font-size: 20px;
+    font-family: reg-f;
+    text-indent: 0.4em;
+    border: 2px solid rgba(231, 29, 253, 0.3);
+    border-radius: 6px;
+    outline: none;
+    transition: border 0.2s;
+    /* transition-timing-function: cubic-bezier(0,.7,.3,1.01); */
+}
+
+.per--form > input:focus {
+    border: 2px solid rgba(231, 29, 253, 0.9);
+}
+
+.per--form > textarea {
+    padding-top: 0.4em;
+    width: 19.3em;
+    max-width: 19.3em;
+    max-height: 18em;
+    min-height: 1.9em;
+    height: 5em;
+    font-size: 20px;
+    font-family: reg-f;
+    padding: 0.4em;
+    /* text-indent: 0.4em; */
+    border: 2px solid rgba(231, 29, 253, 0.3);
+    border-radius: 6px;
+    outline: none;
+    transition: border 0.2s;
+}
+
+.per--form > textarea:focus {
+    border: 2px solid rgba(231, 29, 253, 0.9);
+}
