@@ -9,7 +9,7 @@ export default function FormApp() {
     const [formPage, setFormPage] = useState(1)
     
     const fetchUserData = async () => {
-        fetch("http://localhost:5000/qrcode")
+        fetch("https://qrinfo.onrender.com/qrcode")
             .then((response) => response.text())
             .then((user) => {
                 setImg(user)
