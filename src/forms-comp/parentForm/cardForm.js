@@ -54,9 +54,10 @@ export default function CardForm() {
             note
         } = formData;
     
-        const res = await fetch('/users', {
+        const res = await fetch('https://qrinfo.onrender.com/users', {
             method: "POST",
             headers: {
+            "Accept" : "application/json",  
             "Content-Type": "application/json"
             },
             body: JSON.stringify({
