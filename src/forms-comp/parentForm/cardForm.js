@@ -1,4 +1,5 @@
-import React, {useRef, useState, useEffect} from "react";
+import React, { useRef, useState, useEffect } from "react";
+import axios from "axios";
 import BusForm from "../forms/busForm";
 import NoteForm from "../forms/noteForm";
 import PerForm from "../forms/perForm";
@@ -7,7 +8,7 @@ import "./cardForm.css"
 import StepComp from "./stepComp";
 import mutliStepProgressArray from "../data/mutliStepProgressArray.js"
 import formDataset from "../data/formDataset"
-import {motion} from "framer-motion"
+import { motion } from "framer-motion"
 
 export default function CardForm() {
     const targetRef = useRef(null);
@@ -17,11 +18,12 @@ export default function CardForm() {
     const [imgState, setImg] = useState()
     
     const fetchUserData = async () => {
-        fetch("https://qrinfo.onrender.com/qrcode")
-            .then((response) => response.text())
-            .then((user) => {
-                setImg(user)
-            })
+        try {
+            const response = await axios.get("https://qrinfo.onrender.com/qrcode");
+            setImg(response.data);
+        } catch (error) {
+            console.error("Error fetching user data:", error);
+        }
     }
     
     useEffect(() => {
@@ -31,7 +33,7 @@ export default function CardForm() {
     }, [formPage]);
 
     useEffect(() => {
-        fetchUserData()
+        fetchUserData();
     }, [])
         
     function handleChange(event) {
@@ -42,55 +44,34 @@ export default function CardForm() {
         })
     }
 
-    const PostData = async (e) => {
-        e.preventDefault();
-
-        const {fullName, email, contact, age, compName, jobDes, address, website, twitter,
-            linkedin,
-            github,
-            instagram,
-            facebook,
-            title,
-            note
-        } = formData;
-    
-        const res = await fetch('https://qrinfo.onrender.com/users', {
-            method: "POST",
-            headers: {
-            "Accept" : "application/json",  
-            "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-            fullName,
-            email,
-            contact,
-            age,
-            compName,
-            jobDes,
-            address,
-            website,
-            twitter,
-            linkedin,
-            github,
-            instagram,
-            facebook,
-            title,
-            note
-            })
-        });
-    
-        const data = await res.json();
-    
-        if (data.status === 422 || !data) {
-            window.alert("Invalid Registration");
-            console.log("Invalid Registration");
-        } else {
-            window.alert("Registration Successful");
-            console.log("Registration Successful");
-            
-        }
-        setFormData(
-            {
+    const postData = async () => {
+        try {
+            const { fullName, email, contact, age, compName, jobDes, address, website, twitter, linkedin, github, instagram, facebook, title, note } = formData;
+            const response = await axios.post('/users', {
+                fullName,
+                email,
+                contact,
+                age,
+                compName,
+                jobDes,
+                address,
+                website,
+                twitter,
+                linkedin,
+                github,
+                instagram,
+                facebook,
+                title,
+                note
+            });
+            if (response.status === 200) {
+                window.alert("Registration Successful");
+                console.log("Registration Successful");
+            } else {
+                window.alert("Invalid Registration");
+                console.log("Invalid Registration");
+            }
+            setFormData({
                 fullName: "",
                 email: "",
                 contact: "",
@@ -107,8 +88,11 @@ export default function CardForm() {
                 title: "",
                 note: ""
             });
-            
-        };
+        } catch (error) {
+            console.error("Error posting data:", error);
+            window.alert("Error submitting data. Please try again.");
+        }
+    };
 
     function addFormPage() {
         if(formPage <= 4){
@@ -133,7 +117,8 @@ export default function CardForm() {
     }
 
     function onSubmit(e) {
-        PostData(e);
+        e.preventDefault();
+        postData();
         addFormPage();
     }
 
